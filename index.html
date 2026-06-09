@@ -8,10 +8,10 @@
     <meta name="keywords" content="moda sustentável, resíduo têxtil, moda circular, economia circular, confecção, retalhos, gestão ambiental">
     <meta name="author" content="GERARE Têxtil">
     
-    <!-- Google Fonts: Roboto & Roboto Serif -->
+    <!-- Google Fonts: Roboto, Roboto Serif & Playfair Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     
     <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -25,8 +25,13 @@
     <nav class="navbar" id="main-nav">
         <div class="navbar__container">
             <a href="#" class="navbar__brand">
-                <span class="brand__logo-text">GERARE</span>
-                <span class="brand__sub-text">GESTÃO DE RESÍDUOS TÊXTEIS</span>
+                <div class="brand__logo-container">
+                    <div class="brand__name-row">
+                        <span class="brand__logo-text">GERARE</span>
+                        <span class="brand__logo-suffix">TÊXTIL</span>
+                    </div>
+                    <span class="brand__sub-text">GESTÃO DE RESÍDUOS TÊXTEIS</span>
+                </div>
             </a>
             <div class="navbar__toggle" id="mobile-menu-btn">
                 <i class="bi bi-list"></i>
@@ -659,7 +664,7 @@
                                 <select id="form-role" required>
                                     <option value="" disabled selected>Selecione seu perfil...</option>
                                     <option value="gerador">Gerador (Fábrica / Confecção)</option>
-                                    <option value="receptor">Receptor (Ateliê / Designer / Upcycler)</option>
+                                    <option value="receptor">Receptor (Ateliê / Designer)</option>
                                     <option value="estudante">Estudante / Pesquisador</option>
                                     <option value="outro">Outro interessado</option>
                                 </select>
@@ -669,11 +674,11 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="form-fabric">Tipo de Resíduo Têxtil (opcional):</label>
-                                <input type="text" id="form-fabric" placeholder="Ex: Retalhos de Algodão cru, Jeans (opcional)">
+                                <input type="text" id="form-fabric" placeholder="Ex: Retalhos de Algodão cru, Jeans">
                             </div>
                             <div class="form-group">
                                 <label for="form-qty">Quantidade Estimada em kg (opcional):</label>
-                                <input type="number" id="form-qty" placeholder="Ex: 50 (opcional)" min="0">
+                                <input type="number" id="form-qty" placeholder="Ex: 50" min="0">
                             </div>
                         </div>
 
@@ -722,7 +727,7 @@
                         </div>
                         <div class="member-info">
                             <h4>Deolinda Gabriela</h4>
-                            <p>Bacharelanda em Design, Moda e Estilismo - UFPI</p>
+                            <p>Bacharela em Design, Moda e Estilismo - UFPI</p>
                         </div>
                     </div>
 
@@ -748,6 +753,25 @@
                             <h4>Anderson Monte</h4>
                             <p>Engenheiro de Software</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCIENTIFIC BACKING / PUBLICATIONS -->
+            <div class="footer-publications">
+                <h4 class="publications-title text-center">Publicações</h4>
+                <div class="publication-card">
+                    <div class="pub-stitch"></div>
+                    <i class="bi bi-journal-bookmark-fill pub-icon"></i>
+                    <div class="pub-content">
+                        <div class="pub-header">
+                            <span class="pub-badge">Artigo Científico</span>
+                            <a href="https://www.sustexmoda.org/publica%C3%A7%C3%B5es" class="pub-arrow-link" target="_blank" title="Acessar publicação no SUSTEXMODA">
+                                <i class="bi bi-arrow-right-short"></i>
+                            </a>
+                        </div>
+                        <h4>GERARE: uma abordagem circular para a gestão de resíduos têxteis</h4>
+                        <p><strong>Anais do IV Congresso Internacional de Sustentabilidade em Têxtil e Moda</strong> — <strong>Instituto SUSTEXMODA & USP</strong>.</p>
                     </div>
                 </div>
             </div>
