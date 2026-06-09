@@ -2022,11 +2022,6 @@ path[id^="thread-"]:hover {
         display: none;
     }
 
-    /* Simulator */
-    .simulator-grid {
-        grid-template-columns: 1fr;
-    }
-
     /* Connections Map */
     .connections-grid {
         grid-template-columns: 1fr;
@@ -2071,6 +2066,25 @@ path[id^="thread-"]:hover {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+
+    /* Simulator Mobile Vertical Layout */
+    .simulator-section__container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .simulator-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .simulator-results {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
     }
 }
 
