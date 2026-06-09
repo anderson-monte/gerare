@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GERARE - Gestão de Resíduos Têxteis & Moda Circular</title>
+    <meta name="description" content="Conectamos confecções locais com ateliês de moda e designers de reaproveitamento criativo. Organize seu estoque parado, evite multas ambientais e gere lucro com resíduos têxteis.">
+    <meta name="keywords" content="moda sustentável, resíduo têxtil, moda circular, economia circular, confecção, retalhos, gestão ambiental">
+    <meta name="author" content="GERARE Têxtil">
+    
+    <!-- Google Fonts: Roboto & Roboto Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav class="navbar" id="main-nav">
+        <div class="navbar__container">
+            <a href="#" class="navbar__brand">
+                <span class="brand__logo-text">GERARE</span>
+                <span class="brand__sub-text">GESTÃO DE RESÍDUOS TÊXTEIS</span>
+            </a>
+            <div class="navbar__toggle" id="mobile-menu-btn">
+                <i class="bi bi-list"></i>
+            </div>
+            <ul class="navbar__menu" id="navbar-menu">
+                <li><a href="#hero" class="navbar__link active">Início</a></li>
+                <li><a href="#about" class="navbar__link">Sobre</a></li>
+                <li><a href="#how-it-works" class="navbar__link">Como Funciona</a></li>
+                <li><a href="#simulator" class="navbar__link">Simulador</a></li>
+                <li><a href="#connections" class="navbar__link">Conexões</a></li>
+                <li><a href="#brands" class="navbar__link">Marcas</a></li>
+                <li><a href="#why" class="navbar__link">Por Que Doar?</a></li>
+                <li><a href="#footer" class="navbar__link navbar__link--cta">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero-section">
+            <div class="hero-section__background"></div>
+            <div class="hero-section__container">
+                <div class="hero-section__content">
+                    <span class="hero__tag">Economia Circular & Moda Local</span>
+                    <h1 class="hero__title">
+                        Negocie seu resíduo e <span class="highlight">lucre com seu estoque parado</span>
+                    </h1>
+                    <p class="hero__description">
+                        Conectamos confecções locais a designers e marcas de reaproveitamento. Reduza custos de armazenamento, evite multas ambientais e promova a circularidade têxtil de forma simples e rentável.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#contact-section" class="btn btn--primary">Participar do Ciclo <i class="bi bi-arrow-right-short"></i></a>
+                        <a href="#simulator" class="btn btn--secondary">Simular Impacto</a>
+                    </div>
+                    <div class="hero__social">
+                        <span>Acompanhe:</span>
+                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="hero-section__visual">
+                    <div class="visual__canvas">
+                        <!-- Overlapping brand cards (baralho style) -->
+                        <div class="visual__card card-starbec">
+                            <img src="assets/starbec.jpeg" alt="Starbec">
+                        </div>
+                        <div class="visual__card card-coremendo">
+                            <img src="assets/coremendo.jpeg" alt="CorRemendo">
+                        </div>
+                        <div class="visual__card card-cactus">
+                            <img src="assets/casa_cactus.jpeg" alt="Casa Cactus">
+                        </div>
+                        <div class="visual__card card-apresentacao">
+                            <img src="assets/imagem_apresentacao.jpeg" alt="Tecidos e costura circular">
+                        </div>
+                        <div class="visual__logo-frame">
+                            <img src="assets/logo_gerare.gif" alt="Logo animada GERARE">
+                        </div>
+                        <div class="visual__decor pattern-dots"></div>
+                        <div class="visual__decor stitch-line"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider-wave">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                    <path d="M0,32L80,42.7C160,53,320,75,480,74.7C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" fill="var(--cor-fundo-claro)"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about-section">
+            <div class="about-section__container">
+                <div class="about-section__header text-center">
+                    <span class="section-subtitle">Quem Somos</span>
+                    <h2 class="section-title">Nossa Jornada pela Moda Sustentável</h2>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-card about-card--main">
+                        <div class="card-stitch"></div>
+                        <h3>Sobre Nós</h3>
+                        <p>
+                            O projeto <strong>GERARE</strong> surgiu da necessidade de manusear resíduos das confecções locais teresinenses com a responsabilidade de remanejar o que não seria aproveitado. Facilitamos a destinação de retalhos pré-consumo (sobras de corte) de forma a liberar espaço útil no chão de fábrica e evitar multas ambientais. 
+                        </p>
+                        <p>
+                            Estimulamos a troca de experiências, estimulando negociações justas para intercambiar resíduos entre empresas geradoras e ateliês criativos, adequando os processos às propostas de desenvolvimento sustentável de cada negócio.
+                        </p>
+                    </div>
+                    
+                    <div class="about-card about-card--goal">
+                        <div class="card-stitch"></div>
+                        <h3>Nosso Objetivo</h3>
+                        <p>
+                            Guiar empresas em direção ao estado de sustentabilidade plena, equilibrando de forma inteligente os pilares econômico, ecológico e social da nossa comunidade local. Fomentamos o engajamento social fortalecendo microempresas regionais.
+                        </p>
+                    </div>
+                    
+                    <div class="about-card about-card--mission">
+                        <div class="card-stitch"></div>
+                        <h3>Nossa Missão</h3>
+                        <p>
+                            Alcançar a circularidade na indústria da moda piauiense através da gestão correta, rastreável e lucrativa de resíduos têxteis, transformando o que antes era desperdício em matéria-prima de alto valor criativo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMO FUNCIONA SECTION -->
+        <section id="how-it-works" class="how-section">
+            <div class="how-section__container">
+                <div class="how-section__header text-center">
+                    <span class="section-subtitle">Passo a Passo</span>
+                    <h2 class="section-title">Como Funciona a Conexão Circular?</h2>
+                </div>
+                
+                <div class="how-timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-step">
+                        <div class="step-badge">
+                            <span class="step-num">01</span>
+                            <div class="step-stitch"></div>
+                        </div>
+                        <div class="step-content">
+                            <h4>Cadastre suas Sobras</h4>
+                            <p>Indique os materiais acumulados em sua fábrica (algodão, jeans, malhas) e a quantidade aproximada em nosso formulário.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Line connector (styled via CSS) -->
+                    <div class="timeline-connector"></div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-step">
+                        <div class="step-badge">
+                            <span class="step-num">02</span>
+                            <div class="step-stitch"></div>
+                        </div>
+                        <div class="step-content">
+                            <h4>Conectamos os Parceiros</h4>
+                            <p>Nossa rede cruza as informações e notifica ateliês locais de reaproveitamento e patchwork que necessitam desses tipos específicos de retalhos.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-connector"></div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-step">
+                        <div class="step-badge">
+                            <span class="step-num">03</span>
+                            <div class="step-stitch"></div>
+                        </div>
+                        <div class="step-content">
+                            <h4>Parceria Facilitada</h4>
+                            <p>Geradoras e ateliês parceiros fecham a destinação com segurança e logística inteligente, promovendo economia circular de forma prática.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-connector"></div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-step">
+                        <div class="step-badge">
+                            <span class="step-num">04</span>
+                            <div class="step-stitch"></div>
+                        </div>
+                        <div class="step-content">
+                            <h4>Novo Ciclo de Vida</h4>
+                            <p>Os retalhos são retrabalhados artesanalmente pelas marcas parceiras, dando origem a coleções exclusivas e ecologicamente corretas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIMULATOR SECTION -->
+        <section id="simulator" class="simulator-section">
+            <div class="simulator-section__container">
+                <div class="simulator-section__header text-center">
+                    <span class="section-subtitle">Ferramenta Interativa</span>
+                    <h2 class="section-title">Simule o Impacto do seu Resíduo</h2>
+                    <p class="section-desc">Entenda quanto você economiza em recursos e o impacto positivo ao dar o destino correto às suas sobras de tecidos.</p>
+                </div>
+                
+                <div class="simulator-grid">
+                    <!-- Control panel (Kraft Card Style) -->
+                    <div class="simulator-panel">
+                        <div class="panel-stitch"></div>
+                        <h3 class="panel-title"><i class="bi bi-sliders"></i> Dados de Entrada</h3>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Tipo de Tecido Predominante:</label>
+                            <div class="fabric-options">
+                                <button type="button" class="fabric-btn active" data-factor="11500" data-co2="3.8" data-space="0.015" data-shirt="3.2">
+                                    <span class="fabric-icon"><i class="bi bi-flower1"></i></span>
+                                    <span class="fabric-name">Algodão</span>
+                                </button>
+                                <button type="button" class="fabric-btn" data-factor="8500" data-co2="4.5" data-space="0.012" data-shirt="2.8">
+                                    <span class="fabric-icon"><i class="bi bi-scissor"></i></span>
+                                    <span class="fabric-name">Jeans / Denim</span>
+                                </button>
+                                <button type="button" class="fabric-btn" data-factor="1500" data-co2="6.2" data-space="0.018" data-shirt="4.0">
+                                    <span class="fabric-icon"><i class="bi bi-droplet-half"></i></span>
+                                    <span class="fabric-name">Poliéster</span>
+                                </button>
+                                <button type="button" class="fabric-btn" data-factor="6000" data-co2="4.8" data-space="0.016" data-shirt="3.4">
+                                    <span class="fabric-icon"><i class="bi bi-layers"></i></span>
+                                    <span class="fabric-name">Misto / Fibras</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <div class="slider-header">
+                                <label for="weight-input" class="input-label">Peso Estimado do Resíduo (kg):</label>
+                                <span class="weight-display-badge"><span id="weight-value">250</span> kg</span>
+                            </div>
+                            <input type="range" id="weight-slider" class="range-slider" min="10" max="2000" step="10" value="250">
+                            <div class="slider-labels">
+                                <span>10 kg</span>
+                                <span>1000 kg</span>
+                                <span>2000 kg</span>
+                            </div>
+                        </div>
+
+                        <div class="quick-selectors">
+                            <span>Seleção rápida:</span>
+                            <button type="button" class="btn-quick" data-val="100">100 kg</button>
+                            <button type="button" class="btn-quick" data-val="500">500 kg</button>
+                            <button type="button" class="btn-quick" data-val="1000">1 tonelada</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Results Display -->
+                    <div class="simulator-results">
+                        <div class="result-card" id="res-water">
+                            <div class="result-icon"><i class="bi bi-water"></i></div>
+                            <div class="result-info">
+                                <h4 class="result-num" id="val-water">2.875.000</h4>
+                                <p class="result-label">Litros de Água Preservados</p>
+                                <span class="result-detail" id="water-equivalence">Equivale ao consumo de água de uma pessoa por mais de 25 anos.</span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card" id="res-co2">
+                            <div class="result-icon"><i class="bi bi-cloud-haze2"></i></div>
+                            <div class="result-info">
+                                <h4 class="result-num" id="val-co2">950</h4>
+                                <p class="result-label">kg de CO2 Evitados</p>
+                                <span class="result-detail">Menos gases de efeito estufa emitidos no ar e aterros.</span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card" id="res-space">
+                            <div class="result-icon"><i class="bi bi-box-seam"></i></div>
+                            <div class="result-info">
+                                <h4 class="result-num" id="val-space">3,75</h4>
+                                <p class="result-label">m³ de Espaço de Estoque Liberado</p>
+                                <span class="result-detail">Espaço livre recuperado no seu galpão ou chão de fábrica.</span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card" id="res-shirts">
+                            <div class="result-icon"><i class="bi bi-tag"></i></div>
+                            <div class="result-info">
+                                <h4 class="result-num" id="val-shirts">800</h4>
+                                <p class="result-label">Peças Recriadas Potenciais</p>
+                                <span class="result-detail">Novos artigos confeccionados a partir de retalhos reutilizados.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="simulator-sources-note text-center">
+                        * Cálculos baseados em estimativas médias de pegada hídrica e emissões de carbono para produção e descarte de fibras têxteis (Fontes: Water Footprint Network & Relatórios de Análise de Ciclo de Vida do Setor Têxtil).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONNECTIONS MAP SECTION -->
+        <section id="connections" class="connections-section">
+            <div class="connections-section__container">
+                <div class="connections-section__header text-center">
+                    <span class="section-subtitle">Mapa de Proximidade</span>
+                    <h2 class="section-title">Conexões Locais em Teresina</h2>
+                    <p class="section-desc">Nosso ecossistema conecta as confecções industriais aos polos artesanais, reduzindo custos de transporte e emissões.</p>
+                </div>
+                
+                <div class="connections-grid">
+                    <!-- SVG Interactive Map Mockup -->
+                    <div class="map-container">
+                        <svg id="teresina-map" viewBox="0 0 600 500" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background Map stylized curves -->
+                            <path d="M 100,50 Q 150,120 180,200 T 250,380 Q 280,450 350,480" fill="none" stroke="var(--cor-terciaria)" stroke-width="4" opacity="0.3" stroke-dasharray="8 8" />
+                            <path d="M 50,220 Q 200,230 320,270 T 550,290" fill="none" stroke="var(--cor-terciaria)" stroke-width="4" opacity="0.2" stroke-dasharray="8 8" />
+                            
+                            <!-- Rio Poti/Parnaíba Stylized Curves -->
+                            <path d="M 280,10 Q 300,150 240,250 T 310,490" fill="none" stroke="rgba(207, 121, 46, 0.15)" stroke-width="24" stroke-linecap="round"/>
+                            <path d="M 280,10 Q 300,150 240,250 T 310,490" fill="none" stroke="#E8C39A" stroke-width="2" opacity="0.5"/>
+
+                            <!-- Connecting Animated Threads (Fabrics flowing) -->
+                            <path id="thread-1" d="M 160,120 Q 210,180 340,160" fill="none" stroke="var(--cor-secundaria)" stroke-width="2" stroke-dasharray="6, 6" />
+                            <path id="thread-2" d="M 180,360 Q 260,300 450,250" fill="none" stroke="var(--cor-primaria)" stroke-width="2.5" stroke-dasharray="6, 6" />
+                            <path id="thread-3" d="M 400,420 Q 420,320 450,250" fill="none" stroke="var(--cor-secundaria)" stroke-width="2" stroke-dasharray="6, 6" />
+                            <path id="thread-4" d="M 160,120 Q 300,280 380,340" fill="none" stroke="var(--cor-primaria)" stroke-width="2" stroke-dasharray="6, 6" />
+
+                            <!-- Flow Animation Circles -->
+                            <circle r="5" fill="var(--cor-primaria)">
+                                <animateMotion dur="4s" repeatCount="indefinite" path="M 160,120 Q 210,180 340,160" />
+                            </circle>
+                            <circle r="6" fill="var(--cor-secundaria)">
+                                <animateMotion dur="5s" repeatCount="indefinite" path="M 180,360 Q 260,300 450,250" />
+                            </circle>
+                            <circle r="5" fill="var(--cor-primaria)">
+                                <animateMotion dur="3.5s" repeatCount="indefinite" path="M 400,420 Q 420,320 450,250" />
+                            </circle>
+                            
+                            <!-- Generator Nodes (Industry) -->
+                            <!-- Polo Centro -->
+                            <g class="map-node node--generator" data-info="polo-centro" transform="translate(160, 120)">
+                                <circle class="node-glow" r="18" fill="rgba(159, 70, 25, 0.2)" />
+                                <circle class="node-dot" r="8" fill="var(--cor-primaria)" />
+                                <text class="node-label" y="-15" text-anchor="middle">Polo Centro</text>
+                            </g>
+                            
+                            <!-- Polo Sul -->
+                            <g class="map-node node--generator" data-info="polo-sul" transform="translate(180, 360)">
+                                <circle class="node-glow" r="18" fill="rgba(159, 70, 25, 0.2)" />
+                                <circle class="node-dot" r="8" fill="var(--cor-primaria)" />
+                                <text class="node-label" y="-15" text-anchor="middle">Polo Zona Sul</text>
+                            </g>
+
+                            <!-- Polo Dirceu -->
+                            <g class="map-node node--generator" data-info="polo-dirceu" transform="translate(400, 420)">
+                                <circle class="node-glow" r="18" fill="rgba(159, 70, 25, 0.2)" />
+                                <circle class="node-dot" r="8" fill="var(--cor-primaria)" />
+                                <text class="node-label" y="25" text-anchor="middle">Polo Dirceu</text>
+                            </g>
+                            
+                            <!-- Receptor Nodes (Ateliers) -->
+                            <!-- CorRemendo (Leste) -->
+                            <g class="map-node node--receptor" data-info="coremendo" transform="translate(340, 160)">
+                                <rect class="node-shape" x="-10" y="-10" width="20" height="20" rx="4" fill="var(--cor-secundaria)" />
+                                <circle class="node-dot-inner" r="4" fill="white" />
+                                <text class="node-label" y="-18" text-anchor="middle">CorRemendo</text>
+                            </g>
+                            
+                            <!-- Starbec (Leste/Norte) -->
+                            <g class="map-node node--receptor" data-info="starbec" transform="translate(450, 250)">
+                                <rect class="node-shape" x="-10" y="-10" width="20" height="20" rx="4" fill="var(--cor-secundaria)" />
+                                <circle class="node-dot-inner" r="4" fill="white" />
+                                <text class="node-label" y="-18" text-anchor="middle">Starbec</text>
+                            </g>
+
+                            <!-- Casa Cactus (Centro-Norte) -->
+                            <g class="map-node node--receptor" data-info="cactus" transform="translate(380, 340)">
+                                <rect class="node-shape" x="-10" y="-10" width="20" height="20" rx="4" fill="var(--cor-secundaria)" />
+                                <circle class="node-dot-inner" r="4" fill="white" />
+                                <text class="node-label" y="25" text-anchor="middle">Casa Cactus</text>
+                            </g>
+                        </svg>
+                    </div>
+                    
+                    <!-- Interactive Info Panel -->
+                    <div class="map-info-panel">
+                        <div class="panel-stitch"></div>
+                        <div id="map-instructions" class="info-state active">
+                            <h3><i class="bi bi-hand-index-thumb"></i> Navegue pelo Ecossistema</h3>
+                            <p>Clique em qualquer ponto do mapa (círculos laranjas para indústrias e quadrados amarelos para ateliês criativos) para ver os detalhes da conexão, fluxos de resíduos têxteis e a quilometragem média do transporte.</p>
+                            
+                            <div class="map-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color color-gen"></span>
+                                    <span>Confecção / Produtor de Resíduo</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color color-rec"></span>
+                                    <span>Ateliê / Marca de Moda Circular</span>
+                                </div>
+                                <div class="legend-item animate-pulse">
+                                    <span class="legend-line"></span>
+                                    <span>Fluxo Ativo de Matéria-Prima</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dynamic details containers (hidden by default) -->
+                        <div id="info-polo-centro" class="info-state">
+                            <span class="badge badge--generator">Gerador</span>
+                            <h3>Polo Têxtil Centro</h3>
+                            <p>Zona concentrada de confecção sob medida, pequenos alfaiates e lojas de tecidos. Gera principalmente retalhos de algodão, viscose e linho fino.</p>
+                            <ul>
+                                <li><strong>Principais Destinações:</strong> Ateliê CorRemendo (distância: 4.2 km)</li>
+                                <li><strong>Status:</strong> 8 parceiros ativos cadastrados</li>
+                            </ul>
+                            <button class="btn btn--small btn-map-cta">Conectar com este Polo</button>
+                        </div>
+
+                        <div id="info-polo-sul" class="info-state">
+                            <span class="badge badge--generator">Gerador</span>
+                            <h3>Polo Industrial Zona Sul</h3>
+                            <p>Grandes galpões e fábricas focadas em confecções casuais e fardamento. Alto descarte de retalhos de malha mista e poliéster.</p>
+                            <ul>
+                                <li><strong>Principais Destinações:</strong> Ateliê Starbec e Casa Cactus</li>
+                                <li><strong>Status:</strong> 3 grandes fábricas conectadas</li>
+                            </ul>
+                            <button class="btn btn--small btn-map-cta">Conectar com este Polo</button>
+                        </div>
+
+                        <div id="info-polo-dirceu" class="info-state">
+                            <span class="badge badge--generator">Gerador</span>
+                            <h3>Polo Têxtil Dirceu</h3>
+                            <p>Forte hub de produção de Jeans (Denim) e moda jovem. Resíduos com alta durabilidade com excelente potencial para patchwork estruturado.</p>
+                            <ul>
+                                <li><strong>Principais Destinações:</strong> Ateliê Starbec (distância: 5.8 km)</li>
+                                <li><strong>Status:</strong> 6 confecções conectadas</li>
+                            </ul>
+                            <button class="btn btn--small btn-map-cta">Conectar com este Polo</button>
+                        </div>
+
+                        <div id="info-coremendo" class="info-state">
+                            <span class="badge badge--receptor">Receptor</span>
+                            <h3>Ateliê CorRemendo</h3>
+                            <p>Laboratório criativo focado no redesign têxtil e customização artesanal sob a assinatura de <strong>Madu Melo</strong>.</p>
+                            <ul>
+                                <li><strong>Principais criações:</strong> Jaquetas estruturadas, coletes e acessórios exclusivos de linho e algodão.</li>
+                                <li><strong>Polo mais próximo:</strong> Polo Centro</li>
+                            </ul>
+                            <button class="btn btn--small btn-map-cta">Propor Parceria</button>
+                        </div>
+
+                        <div id="info-starbec" class="info-state">
+                            <span class="badge badge--receptor">Receptor</span>
+                            <h3>Marca Starbec</h3>
+                            <p>Assinada por <strong>Rebecca Maia</strong>, a marca destaca-se na moda criativa através de peças focadas em patchwork e recomposição de retalhos.</p>
+                            <ul>
+                                <li><strong>Principais criações:</strong> Casacos patchwork pesados, saias estruturadas e calças jeans reformuladas.</li>
+                                <li><strong>Polo mais próximo:</strong> Polo Dirceu</li>
+                            </ul>
+                            <button class="btn btn--small btn-map-cta">Propor Parceria</button>
+                        </div>
+
+                        <div id="info-cactus" class="info-state">
+                            <span class="badge badge--receptor">Receptor</span>
+                            <h3>Casa Cactus</h3>
+                            <p>Coletivo e espaço físico que se integra ao ecossistema para comercializar e exibir produtos sustentáveis e promover workshops locais.</p>
+                            <ul>
+                                <li><strong>Principais criações:</strong> Almofadas artesanais, tapetes rústicos e bolsas utilitárias.</li>
+                                <li><strong>Polo mais próximo:</strong> Polo Zona Sul</li>
+                            </ul>
+                            <button class="btn btn--small btn-map-cta">Propor Parceria</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BRANDS SECTION -->
+        <section id="brands" class="brands-section">
+            <div class="brands-section__container">
+                <div class="brands-section__header text-center">
+                    <span class="section-subtitle">Economia Criativa</span>
+                    <h2 class="section-title">Nossas Marcas Parceiras</h2>
+                    <p class="section-desc">Conheça os ateliês locais que utilizam o reaproveitamento criativo para transformar sobras de corte em coleções icônicas de moda.</p>
+                </div>
+                
+                <div class="brand-cards">
+                    <!-- Brand Card 1: CorRemendo -->
+                    <div class="brand-card-v2">
+                        <div class="brand-card-v2__img">
+                            <img src="assets/coremendo_logo.jpeg" alt="Logotipo CorRemendo">
+                        </div>
+                        <div class="brand-card-v2__content">
+                            <h3>CorRemendo</h3>
+                            <p class="brand-signature">Assinado por: Madu Melo</p>
+                            <p class="brand-text">
+                                A CorRemendo é uma marca e laboratório criativo que se destaca pelo seu compromisso com o redesign sustentável. Com uma estética alternativa e design exclusivo resultam em peças únicas, através de um processo artesanal cuidadoso. Priorizamos a sustentabilidade em todas as etapas de produção, transformando materiais reaproveitados em criações únicas.
+                            </p>
+                            <div class="brand-tags">
+                                <span>Algodão</span>
+                                <span>Alfaiataria</span>
+                                <span>Artesanal</span>
+                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Brand Card 2: Starbec -->
+                    <div class="brand-card-v2">
+                        <div class="brand-card-v2__img">
+                            <img src="assets/starbec_logo.png" alt="Logotipo Starbec">
+                        </div>
+                        <div class="brand-card-v2__content">
+                            <h3>Starbec</h3>
+                            <p class="brand-signature">Assinado por: Rebecca Maia</p>
+                            <p class="brand-text">
+                                A marca Starbec é reconhecida por sua moda criativa e singular, especialmente por suas peças em patchwork. Utilizando trabalhos em retalho, a Starbec cria uma identidade única através de recortes e combinações de estampas. Com um forte viés sustentável, a marca se dedica a resignificar os retalhos, combinando-os com outros materiais para promover a circularidade e prolongar o ciclo de vida dos resíduos têxteis.
+                            </p>
+                            <div class="brand-tags">
+                                <span>Jeans / Denim</span>
+                                <span>Sarja</span>
+                                <span>Estamparia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Card 3: Cactus -->
+                    <div class="brand-card-v2">
+                        <div class="brand-card-v2__img">
+                            <img src="assets/cactus-logo.png" alt="Logotipo Casa Cactus">
+                        </div>
+                        <div class="brand-card-v2__content">
+                            <h3>Casa Cactus</h3>
+                            <p class="brand-text">
+                                A Casa Cactus está vinculada ao projeto com o objetivo de se conectar com marcas que utilizam seus resíduos como matéria-prima. Esta iniciativa busca implementar uma gestão eficiente de resíduos, promovendo uma economia circular e transformando descartes em novos produtos sustentáveis. Dessa forma, a Casa Cactus se torna uma marca mais responsável e comprometida com a sustentabilidade.
+                            </p>
+                            <div class="brand-tags">
+                                <span>Fibras</span>
+                                <span>Malhas</span>
+                                <span>Decoração</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY DONATE SECTION -->
+        <section id="why" class="why-section">
+            <div class="why-section__container">
+                <div class="why-section__header text-center">
+                    <span class="section-subtitle">Dados do Setor</span>
+                    <h2 class="section-title">Por que destinar seus resíduos?</h2>
+                    <p class="section-desc">O descarte incorreto gera prejuízos financeiros e ambientais. Veja os números que mostram a importância de se juntar ao projeto.</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <!-- Stat 1 -->
+                    <div class="stat-card">
+                        <div class="stat-chart-container">
+                            <div class="stat-hoop-chart" data-percent="25">
+                                <div class="hoop-inner">
+                                    <span class="hoop-percent">25%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Problema de Logística e Espaço</h4>
+                            <p>Apenas 25% das empresas têm área específica para resíduos têxteis; a maioria usa o chão de fábrica ou áreas compartilhadas, o que prejudica o layout. Além disso, 75% relatam falta de espaço adequado. Vender ou doar resíduos é uma solução que libera espaço e melhora a organização.
+                                <span class="ref-tooltip" data-tooltip="LIMA JUNIOR, F. R.; FRACAROLI, R. L.; CARDOZA, E. V. G. Gestão de Resíduos Têxteis: Um Estudo de Caso Em Um Arranjo Produtivo do Setor do Vestuário. 2010.">[1]</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Stat 2 -->
+                    <div class="stat-card">
+                        <div class="stat-chart-container">
+                            <div class="stat-hoop-chart" data-percent="80">
+                                <div class="hoop-inner">
+                                    <span class="hoop-percent">80%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Desperdício de Matéria-Prima</h4>
+                            <p>Cerca de 80% dos resíduos têxteis vão para lixões e aterros, mas têm potencial de retorno ao mercado. Valorizar esses materiais reduz custos de descarte e gera receita extra ao transformá-los em novos produtos ou matéria-prima.
+                                <span class="ref-tooltip" data-tooltip="CicloVivo: Brasil recicla apenas 20% dos resíduos têxteis que produz."><a href="https://ciclovivo.com.br/planeta/desenvolvimento/brasil-recicla-apenas-20-dos-residuos-texteis-que-produz/" target="_blank">[2]</a></span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="stat-card">
+                        <div class="stat-chart-container">
+                            <div class="stat-hoop-chart" data-percent="15">
+                                <div class="hoop-inner">
+                                    <span class="hoop-percent">15%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Depreciação de Estoque Parado</h4>
+                            <p>Cerca de 15% dos resíduos perdem valor por ociosidade, desvalorização e custos de armazenamento, além de danos e deterioração com o tempo.
+                                <span class="ref-tooltip" data-tooltip="Hivecloud: Prevenção de perdas na logística de estoque."><a href="https://www.hivecloud.com.br/post/prevencao-de-perdas-na-logistica/" target="_blank">[3]</a></span>
+                                <span class="ref-tooltip" data-tooltip="Dinastia Contábil: Gestão de estoque e margens de lucro em lojas de tecidos."><a href="https://www.dinastiacontabil.com.br/gestao-de-estoque-e-margens-de-lucro-em-lojas-de-tecidos/" target="_blank">[4]</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER & LEAD CAPTURE FORM -->
+    <footer id="footer" class="footer">
+        <div class="footer__container">
+            
+            <!-- CONTACT FORM SECTION -->
+            <div id="contact-section" class="contact-section">
+                <div class="contact-card">
+                    <div class="contact-card-stitch"></div>
+                    <div class="contact-header">
+                        <h2>Fale Conosco</h2>
+                        <p>Cadastre seus resíduos ou envie uma proposta para fazer parte da rede GERARE</p>
+                    </div>
+                    
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-name">Seu Nome / Nome da Empresa:</label>
+                                <input type="text" id="form-name" placeholder="Ex: Confecções Estilo LTDA" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email">Seu E-mail:</label>
+                                <input type="email" id="form-email" placeholder="email@exemplo.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-phone">WhatsApp / Telefone:</label>
+                                <input type="tel" id="form-phone" placeholder="(86) 99999-9999" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-role">Perfil Principal:</label>
+                                <select id="form-role" required>
+                                    <option value="" disabled selected>Selecione seu perfil...</option>
+                                    <option value="gerador">Gerador (Fábrica / Confecção)</option>
+                                    <option value="receptor">Receptor (Ateliê / Designer / Upcycler)</option>
+                                    <option value="estudante">Estudante / Pesquisador</option>
+                                    <option value="outro">Outro interessado</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-fabric">Tipo de Resíduo Têxtil (opcional):</label>
+                                <input type="text" id="form-fabric" placeholder="Ex: Retalhos de Algodão cru, Jeans (opcional)">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-qty">Quantidade Estimada em kg (opcional):</label>
+                                <input type="number" id="form-qty" placeholder="Ex: 50 (opcional)" min="0">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-msg">Sua Mensagem ou Proposta:</label>
+                            <textarea id="form-msg" rows="4" placeholder="Escreva sobre suas necessidades, tipos de sobras de cortes ou dúvidas para nossa equipe..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn--primary btn--block btn--submit">
+                            <span class="btn-text">Enviar Mensagem</span>
+                            <span class="btn-icon"><i class="bi bi-send-fill"></i></span>
+                        </button>
+                    </form>
+                    
+                    <div id="form-feedback" class="form-feedback">
+                        <div class="feedback-stitch"></div>
+                        <i class="bi bi-patch-check-fill feedback-icon"></i>
+                        <h3>Mensagem Enviada!</h3>
+                        <p>Obrigado pelo seu contato. A equipe GERARE analisará seus dados e entrará em contato em até 48 horas úteis via WhatsApp ou E-mail para iniciar a conexão.</p>
+                        <button type="button" class="btn btn--small btn--primary" id="btn-reset-form">Enviar Outro Formulário</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEAM SECTION -->
+            <div class="team-section">
+                <h2 class="team-title text-center">Idealizadores do Projeto</h2>
+                <div class="team-grid">
+                    <!-- Team Member 1 -->
+                    <div class="team-card">
+                        <div class="member-img">
+                            <img src="assets/celia-santos-pefil.jpeg" alt="Prof. Célia Santos">
+                            <div class="member-stitch"></div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Prof. Célia Santos</h4>
+                            <p>Professora de Design, Moda e Estilismo - UFPI</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 2 -->
+                    <div class="team-card">
+                        <div class="member-img">
+                            <img src="assets/deolinda-gabriela-perfil.jpeg" alt="Deolinda Gabriela">
+                            <div class="member-stitch"></div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Deolinda Gabriela</h4>
+                            <p>Bacharelanda em Design, Moda e Estilismo - UFPI</p>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="team-card">
+                        <div class="member-img">
+                            <img src="assets/maria-eduarda-perfil.jpeg" alt="Madu Melo">
+                            <div class="member-stitch"></div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Madu Melo</h4>
+                            <p>Bacharela em Design, Moda e Estilismo - UFPI</p>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="team-card">
+                        <div class="member-img">
+                            <img src="assets/anderson-monte-perfil.jpg" alt="Anderson Monte" style="object-position: top;">
+                            <div class="member-stitch"></div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Anderson Monte</h4>
+                            <p>Engenheiro de Software</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER INFO & COPYRIGHT -->
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p class="brand-copyright">&copy; 2026 GERARE TÊXTIL. Todos os direitos reservados.</p>
+                    <p class="contact-email">Contato: <a href="mailto:contato@geraretextil.com.br">contato@geraretextil.com.br</a></p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
