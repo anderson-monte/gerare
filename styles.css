@@ -261,12 +261,36 @@ img {
 .navbar__brand {
     display: flex;
     text-decoration: none;
+    align-items: center;
 }
 
 .brand__logo-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    border: 2px dashed var(--cor-primaria);
+    border-radius: 4px;
+    background: var(--cor-fundo-claro);
+    position: relative;
+    transform: rotate(-1.5deg);
+    transition: var(--trans-suave);
+    box-shadow: 2px 2px 0px rgba(44, 17, 3, 0.1);
+}
+
+/* Simulate the look of an actual clothing label/tag with a small hole or tag eyelet */
+.brand__logo-container::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--cor-fundo-claro);
+    border: 1px solid var(--cor-primaria);
+    border-radius: 50%;
+    z-index: 2;
 }
 
 .brand__name-row {
@@ -276,35 +300,55 @@ img {
 }
 
 .brand__logo-text {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 900;
-    font-size: 2rem;
+    font-family: 'Outfit', 'Roboto', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
     color: var(--cor-primaria);
-    letter-spacing: 0px;
-    line-height: 0.95;
+    letter-spacing: -0.5px;
+    line-height: 1;
     margin: 0;
+    text-transform: lowercase; /* Force lowercase for 'gerare' */
+    transition: var(--trans-suave);
 }
 
 .brand__logo-suffix {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 900;
-    font-size: 0.7rem;
+    font-family: 'Outfit', 'Roboto', sans-serif;
+    font-weight: 300; /* Lighter font weight - "sem bold" */
+    font-size: 1.8rem;
     color: var(--cor-secundaria);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    align-self: center;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    text-transform: lowercase;
+    transition: var(--trans-suave);
 }
 
 .brand__sub-text {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--cor-secundaria);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: var(--cor-texto-mutado);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-top: 3px;
+    margin-top: 2px;
     display: block;
     line-height: 1.1;
     white-space: nowrap;
+}
+
+/* Hover effects for interactive stitch/tag design */
+.brand__logo-container:hover {
+    transform: rotate(0deg) scale(1.03);
+    border-color: var(--cor-secundaria);
+    box-shadow: 4px 4px 0px rgba(44, 17, 3, 0.15);
+    background: #fff;
+}
+
+.brand__logo-container:hover .brand__logo-text {
+    color: var(--cor-secundaria);
+}
+
+.brand__logo-container:hover .brand__logo-suffix {
+    color: var(--cor-primaria);
 }
 
 .navbar__menu {
