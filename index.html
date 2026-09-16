@@ -8,10 +8,10 @@
     <meta name="keywords" content="moda sustentável, resíduo têxtil, moda circular, economia circular, confecção, retalhos, gestão ambiental">
     <meta name="author" content="GERARE Têxtil">
     
-    <!-- Google Fonts: Roboto, Roboto Serif & Playfair Display -->
+    <!-- Google Fonts: Roboto & Roboto Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800;900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     
     <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -33,7 +33,7 @@
                     <span class="brand__sub-text">GESTÃO DE RESÍDUOS TÊXTEIS</span>
                 </div>
             </a>
-            <div class="navbar__toggle" id="mobile-menu-btn">
+            <div class="navbar__toggle" id="mobile-menu-btn" aria-label="Abrir menu" role="button" tabindex="0">
                 <i class="bi bi-list"></i>
             </div>
             <ul class="navbar__menu" id="navbar-menu">
@@ -43,8 +43,8 @@
                 <li><a href="#simulator" class="navbar__link">Simulador</a></li>
                 <li><a href="#connections" class="navbar__link">Conexões</a></li>
                 <li><a href="#brands" class="navbar__link">Marcas</a></li>
-                <li><a href="#why" class="navbar__link">Por Que Doar?</a></li>
-                <li><a href="#footer" class="navbar__link navbar__link--cta">Contato</a></li>
+                <li><a href="#why" class="navbar__link">Impacto</a></li>
+                <li><a href="#contact-section" class="navbar__link navbar__link--cta">Contato</a></li>
             </ul>
         </div>
     </nav>
@@ -56,16 +56,16 @@
             <div class="hero-section__background"></div>
             <div class="hero-section__container">
                 <div class="hero-section__content">
-                    <span class="hero__tag">Economia Circular & Moda Local</span>
+                    <span class="hero__tag">Economia Circular & Gestão de Resíduos Têxteis</span>
                     <h1 class="hero__title">
                         Negocie seu resíduo e <span class="highlight">lucre com seu estoque parado</span>
                     </h1>
                     <p class="hero__description">
-                        Conectamos confecções locais a designers e marcas de reaproveitamento. Reduza custos de armazenamento, evite multas ambientais e promova a circularidade têxtil de forma simples e rentável.
+                        Conectamos confecções e indústrias a marcas e ateliês de reaproveitamento criativo. Reduza custos de armazenamento, evite multas ambientais e transforme sobras de corte em receita e circularidade.
                     </p>
                     <div class="hero__actions">
-                        <a href="#contact-section" class="btn btn--primary">Participar do Ciclo <i class="bi bi-arrow-right-short"></i></a>
-                        <a href="#simulator" class="btn btn--secondary">Simular Impacto</a>
+                        <a href="#simulator" class="btn btn--primary">Simular Impacto <i class="bi bi-sliders"></i></a>
+                        <a href="#contact-section" class="btn btn--secondary">Fazer Parte da Rede</a>
                     </div>
                     <div class="hero__social">
                         <span>Acompanhe:</span>
@@ -254,7 +254,7 @@
                                 <label for="weight-input" class="input-label">Peso Estimado do Resíduo (kg):</label>
                                 <span class="weight-display-badge"><span id="weight-value">250</span> kg</span>
                             </div>
-                            <input type="range" id="weight-slider" class="range-slider" min="10" max="2000" step="10" value="250">
+                            <input type="range" id="weight-slider" class="range-slider" min="10" max="2000" step="10" value="250" aria-label="Peso estimado do resíduo em quilogramas" aria-valuemin="10" aria-valuemax="2000" aria-valuenow="250">
                             <div class="slider-labels">
                                 <span>10 kg</span>
                                 <span>1000 kg</span>
@@ -266,7 +266,7 @@
                             <span>Seleção rápida:</span>
                             <button type="button" class="btn-quick" data-val="100">100 kg</button>
                             <button type="button" class="btn-quick" data-val="500">500 kg</button>
-                            <button type="button" class="btn-quick" data-val="1000">1 tonelada</button>
+                            <button type="button" class="btn-quick" data-val="1000">1 t</button>
                         </div>
                     </div>
                     
@@ -308,6 +308,7 @@
                             </div>
                         </div>
                     </div>
+
                     <p class="simulator-sources-note text-center">
                         * Cálculos baseados em estimativas médias de pegada hídrica e emissões de carbono para produção e descarte de fibras têxteis (Fontes: Water Footprint Network & Relatórios de Análise de Ciclo de Vida do Setor Têxtil).
                     </p>
@@ -355,21 +356,21 @@
                             
                             <!-- Generator Nodes (Industry) -->
                             <!-- Polo Centro -->
-                            <g class="map-node node--generator" data-info="polo-centro" transform="translate(160, 120)">
+                            <g class="map-node node--generator" data-info="polo-centro" transform="translate(160, 120)" tabindex="0" role="button" aria-label="Polo Centro: Polo Têxtil Gerador">
                                 <circle class="node-glow" r="18" fill="rgba(159, 70, 25, 0.2)" />
                                 <circle class="node-dot" r="8" fill="var(--cor-primaria)" />
                                 <text class="node-label" y="-15" text-anchor="middle">Polo Centro</text>
                             </g>
                             
                             <!-- Polo Sul -->
-                            <g class="map-node node--generator" data-info="polo-sul" transform="translate(180, 360)">
+                            <g class="map-node node--generator" data-info="polo-sul" transform="translate(180, 360)" tabindex="0" role="button" aria-label="Polo Zona Sul: Indústrias Geradoras">
                                 <circle class="node-glow" r="18" fill="rgba(159, 70, 25, 0.2)" />
                                 <circle class="node-dot" r="8" fill="var(--cor-primaria)" />
                                 <text class="node-label" y="-15" text-anchor="middle">Polo Zona Sul</text>
                             </g>
 
                             <!-- Polo Dirceu -->
-                            <g class="map-node node--generator" data-info="polo-dirceu" transform="translate(400, 420)">
+                            <g class="map-node node--generator" data-info="polo-dirceu" transform="translate(400, 420)" tabindex="0" role="button" aria-label="Polo Dirceu: Confecções Denim e Moda Jovem">
                                 <circle class="node-glow" r="18" fill="rgba(159, 70, 25, 0.2)" />
                                 <circle class="node-dot" r="8" fill="var(--cor-primaria)" />
                                 <text class="node-label" y="25" text-anchor="middle">Polo Dirceu</text>
@@ -377,21 +378,21 @@
                             
                             <!-- Receptor Nodes (Ateliers) -->
                             <!-- CorRemendo (Leste) -->
-                            <g class="map-node node--receptor" data-info="coremendo" transform="translate(340, 160)">
+                            <g class="map-node node--receptor" data-info="coremendo" transform="translate(340, 160)" tabindex="0" role="button" aria-label="Ateliê CorRemendo: Marca Receptora por Madu Melo">
                                 <rect class="node-shape" x="-10" y="-10" width="20" height="20" rx="4" fill="var(--cor-secundaria)" />
                                 <circle class="node-dot-inner" r="4" fill="white" />
                                 <text class="node-label" y="-18" text-anchor="middle">CorRemendo</text>
                             </g>
                             
                             <!-- Starbec (Leste/Norte) -->
-                            <g class="map-node node--receptor" data-info="starbec" transform="translate(450, 250)">
+                            <g class="map-node node--receptor" data-info="starbec" transform="translate(450, 250)" tabindex="0" role="button" aria-label="Starbec: Marca Receptora de Patchwork por Rebecca Maia">
                                 <rect class="node-shape" x="-10" y="-10" width="20" height="20" rx="4" fill="var(--cor-secundaria)" />
                                 <circle class="node-dot-inner" r="4" fill="white" />
                                 <text class="node-label" y="-18" text-anchor="middle">Starbec</text>
                             </g>
 
                             <!-- Casa Cactus (Centro-Norte) -->
-                            <g class="map-node node--receptor" data-info="cactus" transform="translate(380, 340)">
+                            <g class="map-node node--receptor" data-info="cactus" transform="translate(380, 340)" tabindex="0" role="button" aria-label="Casa Cactus: Espaço Coletivo e Receptores Criativos">
                                 <rect class="node-shape" x="-10" y="-10" width="20" height="20" rx="4" fill="var(--cor-secundaria)" />
                                 <circle class="node-dot-inner" r="4" fill="white" />
                                 <text class="node-label" y="25" text-anchor="middle">Casa Cactus</text>
@@ -639,66 +640,76 @@
                     <div class="contact-card-stitch"></div>
                     <div class="contact-header">
                         <h2>Fale Conosco</h2>
-                        <p>Cadastre seus resíduos ou envie uma proposta para fazer parte da rede GERARE</p>
+                        <p>Cadastre seus resíduos, faça parte da rede ou envie suas dúvidas para nossa equipe.</p>
                     </div>
                     
                     <form id="contact-form" class="contact-form">
+                        <!-- Web3Forms Configuration -->
+                        <input type="hidden" name="access_key" id="web3forms-key" value="e3f7a8c7-fb00-4ec3-ab36-d84aa4891d41">
+                        <input type="hidden" name="subject" value="Novo contato recebido pelo site GERARE">
+                        <input type="hidden" name="from_name" value="GERARE Têxtil (Site)">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="form-name">Seu Nome / Nome da Empresa:</label>
-                                <input type="text" id="form-name" placeholder="Ex: Confecções Estilo LTDA" required>
+                                <label for="form-name">Seu Nome / Empresa: <span class="required-asterisk" title="Campo obrigatório">*</span></label>
+                                <input type="text" id="form-name" name="nome_empresa" placeholder="Ex: Confecções Estilo ou Maria Silva" required>
                             </div>
                             <div class="form-group">
-                                <label for="form-email">Seu E-mail:</label>
-                                <input type="email" id="form-email" placeholder="email@exemplo.com" required>
+                                <label for="form-email">Seu E-mail: <span class="required-asterisk" title="Campo obrigatório">*</span></label>
+                                <input type="email" id="form-email" name="email" placeholder="email@exemplo.com" required>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="form-phone">WhatsApp / Telefone:</label>
-                                <input type="tel" id="form-phone" placeholder="(86) 99999-9999" required>
+                                <label for="form-phone">WhatsApp / Telefone: <span class="required-asterisk" title="Campo obrigatório">*</span></label>
+                                <input type="tel" id="form-phone" name="telefone" placeholder="(86) 99999-9999" required maxlength="15">
                             </div>
                             <div class="form-group">
-                                <label for="form-role">Perfil Principal:</label>
-                                <select id="form-role" required>
+                                <label for="form-role">Perfil ou Interesse: <span class="required-asterisk" title="Campo obrigatório">*</span></label>
+                                <select id="form-role" name="perfil_interesse" required>
                                     <option value="" disabled selected>Selecione seu perfil...</option>
-                                    <option value="gerador">Gerador (Fábrica / Confecção)</option>
-                                    <option value="receptor">Receptor (Ateliê / Designer)</option>
-                                    <option value="estudante">Estudante / Pesquisador</option>
-                                    <option value="outro">Outro interessado</option>
+                                    <option value="Gerador (Fábrica / Confecção)">Gerador (Fábrica / Confecção)</option>
+                                    <option value="Receptor (Ateliê / Designer / Marca)">Receptor (Ateliê / Designer / Marca)</option>
+                                    <option value="Estudante / Pesquisador">Estudante / Pesquisador</option>
+                                    <option value="Outro interesse">Outro interesse</option>
                                 </select>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="form-fabric">Tipo de Resíduo Têxtil (opcional):</label>
-                                <input type="text" id="form-fabric" placeholder="Ex: Retalhos de Algodão cru, Jeans">
+                                <label for="form-fabric">Tipo de Tecido ou Resíduo (opcional):</label>
+                                <input type="text" id="form-fabric" name="tipo_tecido" placeholder="Ex: Algodão cru, Jeans, Linho">
                             </div>
                             <div class="form-group">
                                 <label for="form-qty">Quantidade Estimada em kg (opcional):</label>
-                                <input type="number" id="form-qty" placeholder="Ex: 50" min="0">
+                                <input type="number" id="form-qty" name="quantidade_kg" placeholder="Ex: 50" min="0">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="form-msg">Sua Mensagem ou Proposta:</label>
-                            <textarea id="form-msg" rows="4" placeholder="Escreva sobre suas necessidades, tipos de sobras de cortes ou dúvidas para nossa equipe..." required></textarea>
+                            <label for="form-msg">Sua Mensagem: <span class="required-asterisk" title="Campo obrigatório">*</span></label>
+                            <textarea id="form-msg" name="mensagem" rows="4" placeholder="Escreva sobre suas necessidades, propostas de parceria ou dúvidas para nossa equipe..." required></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn--primary btn--block btn--submit">
                             <span class="btn-text">Enviar Mensagem</span>
                             <span class="btn-icon"><i class="bi bi-send-fill"></i></span>
                         </button>
+
+                        <p class="form-disclaimer text-center">
+                            * Seus dados são confidenciais e utilizados apenas para retorno da nossa equipe.
+                        </p>
                     </form>
                     
                     <div id="form-feedback" class="form-feedback">
                         <div class="feedback-stitch"></div>
                         <i class="bi bi-patch-check-fill feedback-icon"></i>
-                        <h3>Mensagem Enviada!</h3>
-                        <p>Obrigado pelo seu contato. A equipe GERARE analisará seus dados e entrará em contato em até 48 horas úteis via WhatsApp ou E-mail para iniciar a conexão.</p>
-                        <button type="button" class="btn btn--small btn--primary" id="btn-reset-form">Enviar Outro Formulário</button>
+                        <h3>Mensagem Enviada com Sucesso!</h3>
+                        <p>Obrigado pelo seu contato. Nossa equipe analisará suas informações e retornará o contato o mais breve possível.</p>
+                        <button type="button" class="btn btn--small btn--primary" id="btn-reset-form">Enviar Outra Mensagem</button>
                     </div>
                 </div>
             </div>
@@ -710,11 +721,11 @@
                     <!-- Team Member 1 -->
                     <div class="team-card">
                         <div class="member-img">
-                            <img src="assets/celia-santos-pefil.jpeg" alt="Prof. Célia Santos">
+                            <img src="assets/celia-santos-pefil.jpeg" alt="Ma. Célia Santos">
                             <div class="member-stitch"></div>
                         </div>
                         <div class="member-info">
-                            <h4>Prof. Célia Santos</h4>
+                            <h4>Ma. Célia Santos</h4>
                             <p>Professora de Design, Moda e Estilismo - UFPI</p>
                         </div>
                     </div>
@@ -760,18 +771,37 @@
             <!-- SCIENTIFIC BACKING / PUBLICATIONS -->
             <div class="footer-publications">
                 <h4 class="publications-title text-center">Publicações</h4>
-                <div class="publication-card">
-                    <div class="pub-stitch"></div>
-                    <i class="bi bi-journal-bookmark-fill pub-icon"></i>
-                    <div class="pub-content">
-                        <div class="pub-header">
-                            <span class="pub-badge">Artigo Científico</span>
-                            <a href="https://www.sustexmoda.org/publica%C3%A7%C3%B5es" class="pub-arrow-link" target="_blank" title="Acessar publicação no SUSTEXMODA">
-                                <i class="bi bi-arrow-right-short"></i>
-                            </a>
+                <div class="publications-grid">
+                    <!-- Publicação 1: SUSTEXMODA / USP -->
+                    <div class="publication-card">
+                        <div class="pub-stitch"></div>
+                        <i class="bi bi-journal-bookmark-fill pub-icon"></i>
+                        <div class="pub-content">
+                            <div class="pub-header">
+                                <span class="pub-badge">Artigo Científico</span>
+                                <a href="https://www.sustexmoda.org/publica%C3%A7%C3%B5es" class="pub-arrow-link" target="_blank" rel="noopener noreferrer" title="Acessar publicação no SUSTEXMODA">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </a>
+                            </div>
+                            <h4>Construção de uma plataforma de comunicação para a propagação de projetos sustentáveis de Teresina/PI</h4>
+                            <p><strong>Anais do IV Congresso Internacional de Sustentabilidade em Têxtil e Moda (2025)</strong> (p. 106-111) — <strong>Instituto SUSTEXMODA &amp; USP</strong>.</p>
                         </div>
-                        <h4>GERARE: uma abordagem circular para a gestão de resíduos têxteis</h4>
-                        <p><strong>Anais do IV Congresso Internacional de Sustentabilidade em Têxtil e Moda</strong> — <strong>Instituto SUSTEXMODA & USP</strong>.</p>
+                    </div>
+
+                    <!-- Publicação 2: Fórum Fashion Revolution 2024 -->
+                    <div class="publication-card">
+                        <div class="pub-stitch"></div>
+                        <i class="bi bi-journal-text pub-icon"></i>
+                        <div class="pub-content">
+                            <div class="pub-header">
+                                <span class="pub-badge">Capítulo de Livro</span>
+                                <span class="pub-arrow-link is-disabled" title="Em breve / Acesso restrito" aria-disabled="true">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </span>
+                            </div>
+                            <h4>(EP) GERARE: uma abordagem circular para a gestão de resíduos têxteis</h4>
+                            <p><strong>Livro Digital Fórum Fashion Revolution (2024)</strong> (p. 269-273) — <strong>Instituto Fashion Revolution Brasil</strong>.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -780,7 +810,7 @@
             <div class="footer-bottom">
                 <div class="footer-info">
                     <p class="brand-copyright">&copy; 2026 GERARE TÊXTIL. Todos os direitos reservados.</p>
-                    <p class="contact-email">Contato: <a href="mailto:contato@geraretextil.com.br">contato@geraretextil.com.br</a></p>
+                    <p class="contact-email">Contato: <a href="mailto:ola@geraretextil.com.br">ola@geraretextil.com.br</a></p>
                 </div>
             </div>
             

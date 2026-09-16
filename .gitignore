@@ -2,3 +2,6 @@
 .gemini/
 .vscode/
 *.log
+.agents/
+.impeccable/
+.serena/
