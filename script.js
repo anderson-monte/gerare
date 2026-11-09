@@ -24,6 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Close mobile menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navbarMenu.classList.contains('open')) {
+            navbarMenu.classList.remove('open');
+            mobileMenuIcon.className = 'bi bi-list';
+            mobileMenuBtn.focus();
+        }
+    });
+
 
 
     /* ==========================================================================
@@ -48,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     // Match link href
                     const href = link.getAttribute('href');
-                    if (href === `#${id}` || (id === 'footer' && href === '#footer')) {
+                    if (href === `#${id}` || (id === 'footer' && href === '#contact-section')) {
                         link.classList.add('active');
                     }
                 });
@@ -192,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run initial calculation on page load
     calculateImpact();
 
-
     /* ==========================================================================
        CONNECTIONS MAP SVG INTERACTIVE LOGIC
        ========================================================================== */
@@ -200,21 +208,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const infoStates = document.querySelectorAll('.info-state');
     const mapInstructions = document.getElementById('map-instructions');
 
+    function selectMapNode(node) {
+        const infoId = node.getAttribute('data-info');
+        const targetInfo = document.getElementById(`info-${infoId}`);
+
+        // Toggle active classes on nodes
+        mapNodes.forEach(n => n.classList.remove('active'));
+        infoStates.forEach(s => s.classList.remove('active'));
+
+        if (targetInfo) {
+            node.classList.add('active');
+            targetInfo.classList.add('active');
+            mapInstructions.classList.remove('active');
+        } else {
+            mapInstructions.classList.add('active');
+        }
+    }
+
     mapNodes.forEach(node => {
-        node.addEventListener('click', () => {
-            const infoId = node.getAttribute('data-info');
-            const targetInfo = document.getElementById(`info-${infoId}`);
+        node.addEventListener('click', () => selectMapNode(node));
 
-            // Toggle active classes on nodes
-            mapNodes.forEach(n => n.classList.remove('active'));
-            infoStates.forEach(s => s.classList.remove('active'));
-
-            if (targetInfo) {
-                node.classList.add('active');
-                targetInfo.classList.add('active');
-                mapInstructions.classList.remove('active');
-            } else {
-                mapInstructions.classList.add('active');
+        // Keyboard accessibility (Enter or Space)
+        node.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                selectMapNode(node);
             }
         });
     });
@@ -223,16 +241,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.btn-map-cta').forEach(btn => {
         btn.addEventListener('click', () => {
             const activeNode = document.querySelector('.map-node.active');
-            const roleSelect = document.getElementById('form-role');
             const msgArea = document.getElementById('form-msg');
+            const roleSelect = document.getElementById('form-role');
             const contactSection = document.getElementById('contact-section');
 
             if (activeNode) {
-                const nodeType = activeNode.classList.contains('node--generator') ? 'gerador' : 'receptor';
+                const isGenerator = activeNode.classList.contains('node--generator');
                 const nodeName = activeNode.querySelector('.node-label').textContent;
 
-                roleSelect.value = nodeType === 'gerador' ? 'receptor' : 'gerador'; // reverse connect proposal
-                msgArea.value = `Olá! Vi o ponto "${nodeName}" no mapa interativo e gostaria de propor uma parceria para destinação circular de resíduos têxteis com vocês.`;
+                if (roleSelect) {
+                    roleSelect.value = isGenerator ? 'receptor' : 'gerador';
+                }
+                if (msgArea) {
+                    msgArea.value = `Olá! Vi o ponto "${nodeName}" no mapa interativo e gostaria de propor uma parceria para destinação circular de resíduos têxteis com vocês.`;
+                }
 
                 // Scroll to contact form smoothly
                 contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -242,44 +264,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       CONTACT FORM SUBMISSION WITH FEEDBACK
+       CONTACT FORM PHONE MASK
+       ========================================================================== */
+    const formPhone = document.getElementById('form-phone');
+    if (formPhone) {
+        formPhone.addEventListener('input', (e) => {
+            let val = e.target.value.replace(/\D/g, '');
+            if (val.length > 11) val = val.slice(0, 11);
+
+            if (val.length > 6) {
+                val = `(${val.slice(0, 2)}) ${val.slice(2, 7)}-${val.slice(7)}`;
+            } else if (val.length > 2) {
+                val = `(${val.slice(0, 2)}) ${val.slice(2)}`;
+            } else if (val.length > 0) {
+                val = `(${val}`;
+            }
+            e.target.value = val;
+        });
+    }
+
+
+    /* ==========================================================================
+       CONTACT FORM SUBMISSION VIA WEB3FORMS WITH FEEDBACK
        ========================================================================== */
     const contactForm = document.getElementById('contact-form');
     const formFeedback = document.getElementById('form-feedback');
     const btnResetForm = document.getElementById('btn-reset-form');
-    const submitBtn = contactForm.querySelector('.btn--submit');
-    const submitBtnText = submitBtn.querySelector('.btn-text');
-    const submitBtnIcon = submitBtn.querySelector('.btn-icon');
+    const submitBtn = contactForm ? contactForm.querySelector('.btn--submit') : null;
+    const submitBtnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+    const submitBtnIcon = submitBtn ? submitBtn.querySelector('.btn-icon') : null;
 
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-        // Simple validation check
-        if (!contactForm.checkValidity()) return;
+            // Native HTML5 validity check
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
 
-        // Button loading state animation
-        submitBtn.disabled = true;
-        submitBtnText.textContent = 'Enviando...';
-        submitBtnIcon.innerHTML = '<i class="bi bi-hourglass-split animate-spin"></i>';
+            // Button loading state
+            submitBtn.disabled = true;
+            submitBtnText.textContent = 'Enviando...';
+            submitBtnIcon.innerHTML = '<i class="bi bi-hourglass-split animate-spin"></i>';
 
-        // Mock AJAX delay
-        setTimeout(() => {
-            // Restore button state
-            submitBtn.disabled = false;
-            submitBtnText.textContent = 'Enviar Mensagem';
-            submitBtnIcon.innerHTML = '<i class="bi bi-send-fill"></i>';
+            try {
+                const formData = new FormData(contactForm);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
 
-            // Show success animation overlay
-            formFeedback.classList.add('show');
-            
-            // Scroll to the contact section so success card is fully visible
-            document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
-        }, 1500);
-    });
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+
+                const result = await response.json();
+
+                if (response.status === 200) {
+                    // Success: show feedback card
+                    formFeedback.classList.add('show');
+                    document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    // Fallback alert if access_key is not configured yet or fails
+                    alert(result.message || 'Houve um erro ao enviar. Verifique se a sua chave do Web3Forms foi configurada.');
+                }
+            } catch (error) {
+                console.error('Erro de envio:', error);
+                alert('Não foi possível enviar a mensagem no momento. Por favor, tente novamente mais tarde ou envie um e-mail para ola@geraretextil.com.br');
+            } finally {
+                // Restore button state
+                submitBtn.disabled = false;
+                submitBtnText.textContent = 'Enviar Mensagem';
+                submitBtnIcon.innerHTML = '<i class="bi bi-send-fill"></i>';
+            }
+        });
+    }
 
     // Reset Form button
-    btnResetForm.addEventListener('click', () => {
-        contactForm.reset();
-        formFeedback.classList.remove('show');
-    });
+    if (btnResetForm) {
+        btnResetForm.addEventListener('click', () => {
+            contactForm.reset();
+            formFeedback.classList.remove('show');
+        });
+    }
 });

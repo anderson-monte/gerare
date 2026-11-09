@@ -493,7 +493,9 @@ img {
     font-size: 1.15rem;
     color: var(--cor-texto-mutado);
     margin-bottom: 2rem;
-    text-align: justify;
+    text-align: left;
+    max-width: 65ch;
+    line-height: 1.65;
 }
 
 .hero__actions {
@@ -757,7 +759,8 @@ img {
 }
 
 .about-card p {
-    text-align: justify;
+    text-align: left;
+    line-height: 1.6;
 }
 
 .about-card--main {
@@ -1296,7 +1299,8 @@ path[id^="thread-"]:hover {
 .info-state p {
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
-    text-align: justify;
+    text-align: left;
+    line-height: 1.6;
 }
 
 .info-state ul {
@@ -1446,10 +1450,10 @@ path[id^="thread-"]:hover {
 
 .brand-text {
     font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 1.5rem;
     flex-grow: 1;
-    text-align: justify;
+    text-align: left;
 }
 
 .brand-tags {
@@ -1600,7 +1604,7 @@ path[id^="thread-"]:hover {
     font-size: 0.85rem;
     margin-bottom: 1.25rem;
     line-height: 1.6;
-    text-align: justify;
+    text-align: left;
 }
 
 .stat-citation {
@@ -1706,6 +1710,12 @@ path[id^="thread-"]:hover {
     color: var(--cor-texto);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.required-asterisk {
+    color: var(--cor-primaria);
+    font-weight: 700;
+    margin-left: 2px;
 }
 
 .contact-form input,
@@ -1850,6 +1860,9 @@ path[id^="thread-"]:hover {
     font-size: 0.8rem;
     color: rgba(250, 246, 240, 0.6);
 }
+
+
+
 
 /* Footer Bottom links and text */
 .footer-bottom {
@@ -2162,7 +2175,7 @@ path[id^="thread-"]:hover {
 
 /* Footer Publications Section */
 .footer-publications {
-    max-width: 580px;
+    max-width: 900px;
     margin: 2.5rem auto 1.5rem auto;
     padding: 0 1.5rem;
 }
@@ -2171,21 +2184,27 @@ path[id^="thread-"]:hover {
     font-family: var(--font-heading);
     color: var(--cor-terciaria);
     font-size: 1.1rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     opacity: 0.95;
+}
+
+.publications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
 }
 
 .publication-card {
     position: relative;
     background: rgba(159, 70, 25, 0.03);
     border: 1px dashed var(--cor-terciaria);
-    padding: 1rem 1.25rem;
+    padding: 1.15rem 1.25rem;
     border-radius: 8px;
     display: flex;
     gap: 1.2rem;
-    align-items: center;
+    align-items: flex-start;
     transition: var(--trans-suave);
 }
 
@@ -2211,6 +2230,7 @@ path[id^="thread-"]:hover {
     color: var(--cor-primaria);
     opacity: 0.85;
     margin-right: 0.25rem;
+    flex-shrink: 0;
 }
 
 .pub-content {
@@ -2247,9 +2267,16 @@ path[id^="thread-"]:hover {
     text-decoration: none;
 }
 
-.pub-arrow-link:hover {
+.pub-arrow-link:not(.is-disabled):hover {
     color: var(--cor-secundaria);
     transform: translateX(4px);
+}
+
+.pub-arrow-link.is-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+    filter: grayscale(1);
 }
 
 .pub-content h4 {
@@ -2269,6 +2296,11 @@ path[id^="thread-"]:hover {
 
 /* Mobile responsive for publications */
 @media (max-width: 768px) {
+    .publications-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
     .publication-card {
         flex-direction: column;
         align-items: center;
@@ -2286,3 +2318,63 @@ path[id^="thread-"]:hover {
         width: 100%;
     }
 }
+
+/* ==========================================================================
+   SVG MAP ACCESSIBILITY & NODE FOCUS
+   ========================================================================== */
+.map-node {
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.25s ease;
+}
+
+.map-node:hover .node-dot,
+.map-node:focus-visible .node-dot {
+    transform: scale(1.25);
+}
+
+.map-node:focus-visible .node-glow {
+    fill: rgba(217, 155, 38, 0.45);
+    stroke: var(--cor-secundaria);
+    stroke-width: 2px;
+}
+
+.map-node:focus-visible .node-shape {
+    stroke: var(--cor-terciaria);
+    stroke-width: 2.5px;
+}
+
+/* ==========================================================================
+   CONTACT SECTION: DISCLAIMER NOTE
+   ========================================================================== */
+.form-disclaimer {
+    font-size: 0.75rem;
+    color: var(--cor-texto-mutado);
+    text-align: center;
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   PREFERS-REDUCED-MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .visual__logo-frame img,
+    .animate-pulse,
+    .node-glow,
+    animateMotion {
+        animation: none !important;
+    }
+}
+
