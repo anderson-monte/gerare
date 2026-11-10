@@ -411,4 +411,16 @@ document.addEventListener('DOMContentLoaded', () => {
             formFeedback.classList.remove('show');
         });
     }
+
+    // Adaptive Favicon: Preto no tema claro e Branco no tema escuro
+    const darkModeMatcher = window.matchMedia('(prefers-color-scheme: dark)');
+    function updateAdaptiveFavicon() {
+        const isDark = darkModeMatcher.matches;
+        const icon32 = document.querySelector('link[rel="icon"][sizes="32x32"]');
+        const icon16 = document.querySelector('link[rel="icon"][sizes="16x16"]');
+        if (icon32) icon32.href = isDark ? 'assets/favicon-dark.png' : 'assets/favicon-light.png';
+        if (icon16) icon16.href = isDark ? 'assets/favicon-dark.png' : 'assets/favicon-light.png';
+    }
+    darkModeMatcher.addEventListener('change', updateAdaptiveFavicon);
+    updateAdaptiveFavicon();
 });
