@@ -36,38 +36,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       SCROLL OBSERVER FOR ACTIVE NAVBAR LINKS
+       SCROLLSPY FOR ACTIVE NAVBAR LINKS
        ========================================================================== */
-    const sections = document.querySelectorAll('section, footer');
-    const navLinks = document.querySelectorAll('.navbar__link');
+    const navLinks = Array.from(document.querySelectorAll('.navbar__link'));
+    const navbar = document.querySelector('.navbar');
 
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.35 // 35% of the section is visible
+    // Map each nav link to its target element (skip links without a target)
+    const spyTargets = navLinks
+        .map(link => {
+            const href = link.getAttribute('href');
+            const target = href && href.length > 1 ? document.querySelector(href) : null;
+            return target ? { link, target, top: 0 } : null;
+        })
+        .filter(Boolean);
+
+    let activeLink = document.querySelector('.navbar__link.active');
+
+    // A section becomes active once its top crosses ~40% of the viewport
+    // (below the fixed navbar), so activation happens when the section is
+    // actually reaching the middle of the screen.
+    const getFocusLine = () => {
+        const navHeight = navbar ? navbar.offsetHeight : 0;
+        return window.scrollY + navHeight + window.innerHeight * 0.4;
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    
-                    // Match link href
-                    const href = link.getAttribute('href');
-                    if (href === `#${id}` || (id === 'footer' && href === '#contact-section')) {
-                        link.classList.add('active');
-                    }
-                });
+    const measureTargets = () => {
+        spyTargets.forEach(item => {
+            item.top = item.target.getBoundingClientRect().top + window.scrollY;
+        });
+    };
+
+    const updateActiveLink = () => {
+        if (!spyTargets.length) return;
+
+        const focusLine = getFocusLine();
+        let current = spyTargets[0];
+
+        spyTargets.forEach(item => {
+            if (item.top <= focusLine) {
+                current = item;
             }
         });
-    }, observerOptions);
 
-    sections.forEach(section => {
-        observer.observe(section);
+        // At the very bottom of the page, always highlight the last link
+        const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+        if (isAtBottom) {
+            current = spyTargets[spyTargets.length - 1];
+        }
+
+        if (!current || current.link === activeLink) return;
+
+        navLinks.forEach(link => link.classList.remove('active'));
+        current.link.classList.add('active');
+        activeLink = current.link;
+    };
+
+    // Initial state (fixes wrong link on page load)
+    measureTargets();
+    updateActiveLink();
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            measureTargets();
+            updateActiveLink();
+        }, 150);
     });
+
+    // Re-measure after images/fonts finish loading (they can shift section offsets)
+    window.addEventListener('load', () => {
+        measureTargets();
+        updateActiveLink();
+    });
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            measureTargets();
+            updateActiveLink();
+        });
+    }
 
     /* ==========================================================================
        SIMULATOR LOGIC & COUNTER ANIMATION
@@ -250,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const nodeName = activeNode.querySelector('.node-label').textContent;
 
                 if (roleSelect) {
-                    roleSelect.value = isGenerator ? 'receptor' : 'gerador';
+                    roleSelect.value = isGenerator ? 'Receptor (Ateliê / Designer / Marca)' : 'Gerador (Fábrica / Confecção)';
                 }
                 if (msgArea) {
                     msgArea.value = `Olá! Vi o ponto "${nodeName}" no mapa interativo e gostaria de propor uma parceria para destinação circular de resíduos têxteis com vocês.`;
