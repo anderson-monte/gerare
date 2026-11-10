@@ -7,29 +7,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbarMenu = document.getElementById('navbar-menu');
     const mobileMenuIcon = mobileMenuBtn.querySelector('i');
 
+    // Centraliza a abertura/fechamento do menu, mantendo ARIA e ícone em sincronia
+    const setMenuState = (isOpen, focusToggle = false) => {
+        navbarMenu.classList.toggle('open', isOpen);
+        mobileMenuIcon.className = isOpen ? 'bi bi-x-lg' : 'bi bi-list';
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+        mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+        if (!isOpen && focusToggle) mobileMenuBtn.focus();
+    };
+
     mobileMenuBtn.addEventListener('click', () => {
-        navbarMenu.classList.toggle('open');
-        if (navbarMenu.classList.contains('open')) {
-            mobileMenuIcon.className = 'bi bi-x-lg';
-        } else {
-            mobileMenuIcon.className = 'bi bi-list';
+        setMenuState(!navbarMenu.classList.contains('open'));
+    });
+
+    // Ativação por teclado (Enter/Espaço) para o botão customizado
+    mobileMenuBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setMenuState(!navbarMenu.classList.contains('open'));
         }
     });
 
     // Close menu when clicking links
     document.querySelectorAll('.navbar__link').forEach(link => {
         link.addEventListener('click', () => {
-            navbarMenu.classList.remove('open');
-            mobileMenuIcon.className = 'bi bi-list';
+            setMenuState(false);
         });
     });
 
     // Close mobile menu on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && navbarMenu.classList.contains('open')) {
-            navbarMenu.classList.remove('open');
-            mobileMenuIcon.className = 'bi bi-list';
-            mobileMenuBtn.focus();
+            setMenuState(false, true);
         }
     });
 

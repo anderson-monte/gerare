@@ -1019,6 +1019,11 @@ img {
     margin: 1.25rem 0;
 }
 
+.range-slider:focus-visible {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 4px;
+}
+
 /* Handle styled as button */
 .range-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
